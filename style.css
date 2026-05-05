@@ -84,7 +84,7 @@ nav.scrolled { padding: 12px 5%; }
   position: absolute; inset: 0;
   background:
     linear-gradient(105deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.3) 100%),
-    url('Cover1.jpg') center/cover no-repeat;
+    url('herocover.jpg') center/cover no-repeat;
 }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
