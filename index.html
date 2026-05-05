@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>J.A.C Tattoo Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="logo-jac">J·A·C</span>
+    <span class="logo-sub">Tattoo Gallery</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="#contact" >Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="images.html" onclick="closeMenu()">Images</a>
+  <a href="#contact" onclick="openForm()">Contact</a>
+</div>
+
+<!-- DEMO NOTICE -->
+<div class="demo-notice" style="margin-top:0;padding-top:16px;padding-bottom:16px;">
+  <span style="color:var(--orange);">note:</span> this website is not fully functional: this is for Demo purposes only.
+  Buy this design? Message me <a href="#">here</a>.
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">No. 1 Tattoo service in Bulacan</p>
+    <h1 class="hero-title">J.A.C<br><span>Tattoo</span></h1>
+    <p class="hero-desc">
+      Great tattoo isn't just about how it looks on day one—but how it heals and settles over a lifetime. My process is meticulous, from the initial digital mockup to the final pass of the needle. I maintain a <strong>sterile, professional</strong>, and focused environment at <strong>J.A.C tattoo</strong> to ensure the best possible results for my clients.
+    </p>
+    <a href="#gallery" class="btn-primary">Book Now</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <h3>Coverup</h3>
+      <ul class="service-list">
+        <li>Hide old ink, reveal new confidence</li>
+        <li>Smart design over existing tattoos</li>
+        <li>Seamless blending & bold results</li>
+        <li>Honest advice, real transformations</li>
+        
+      </ul>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.1s">
+      <h3>Minimalist</h3>
+      <ul class="service-list">
+        <li>Clean, fine-line precision</li>
+        <li>Simple, timeless designs</li>
+        <li>Subtle but meaningful</li>
+        <li>Perfect for first tattoos</li>
+        
+      </ul>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.2s">
+      <h3>Full Sleeve</h3>
+      <ul class="service-list">
+        <li>Full-arm custom concepts</li>
+        <li>Flowing, connected artwork</li>
+        <li>Built in sessions, made to last</li>
+        <li>Bold, detailed storytelling</li>
+        
+      </ul>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.3s">
+      <h3>Chest &amp; Back</h3>
+      <ul class="service-list">
+        <li>Large-scale statement pieces</li>
+        <li>Designed for body symmetry</li>
+        <li>High impact, high detail</li>
+        <li>Built to stand out</li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <h2>Tattooing is more than a service; it is a collaborative exploration of art and anatomy.</h2>
+      <p>To many, a tattoo appointment is a transaction, but to me, it is a profound intersection of creative vision and biological reality.</p>
+      <p><strong>Tattooing is more than a service; it is a collaborative exploration of art and anatomy.</strong> Unlike a static canvas or a digital screen, the human body is a living, breathing landscape of curves, muscle groups, and shifting textures. To create a piece that truly resonates, I must look beyond the ink to understand the unique architecture of your frame.</p>
+      <p>This process requires a deep partnership between artist and client; your story and your identity provide the soul of the work, while my technical expertise ensures that the art honors the skin it lives on.</p>
+      <p>We are not just "applying" a design; we are mapping a custom piece of fine art to a three-dimensional, moving form. When we respect the harmony between the needle and the anatomy, the result isn't just a decoration—it is a permanent extension of yourself, crafted with the patience and precision that such a transformation demands.</p>
+    </div>
+    <div class="about-image reveal" style="transition-delay:0.2s">
+      <img src="jac.jpg" alt="JAC"/>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-header reveal">
+    <h2>Recent Work</h2>
+    <div class="line"></div>
+  </div>
+  <div class="gallery-strip" id="galleryStrip">
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 1.jpg" alt="Tattoo 1"/>
+      <div class="overlay"><span>Blackwork</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 2.jpg" alt="Tattoo 2"/>
+      <div class="overlay"><span>Fine Line</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 3.jpg" alt="Tattoo 3"/>
+      <div class="overlay"><span>Minimalist</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 4.jpg" alt="Tattoo 4"/>
+      <div class="overlay"><span>Geometric</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 5.jpg" alt="Tattoo 5"/>
+      <div class="overlay"><span>Floral</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 6.jpg" alt="Tattoo 6"/>
+      <div class="overlay"><span>Sleeve</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 7.jpg" alt="Tattoo 7"/>
+      <div class="overlay"><span>Portrait</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 8.jpg" alt="Tattoo 8"/>
+      <div class="overlay"><span>Tribal</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 9.jpg" alt="Tattoo 9"/>
+      <div class="overlay"><span>Tribal</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 10.jpg" alt="Tattoo 10"/>
+      <div class="overlay"><span>Tribal</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 11.jpg" alt="Tattoo 11"/>
+      <div class="overlay"><span>Tribal</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="tattoo 12.jpg" alt="Tattoo 12"/>
+      <div class="overlay"><span>Tribal</span></div>
+    </div>
+  </div>
+  <div class="gallery-dots" id="galleryDots"></div>
+  <div class="gallery-cta reveal">
+    <a href="gallery.html" class="btn-outline">View All</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header reveal">
+    <h2>Testimonial</h2>
+    <div class="line"></div>
+  </div>
+  <div class="testimonials-track-wrap reveal">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <!-- Slide 1 -->
+      <div class="testimonial-card">
+        <div class="t-card">
+          <div class="t-label">First Timer</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">"I was incredibly nervous about my first tattoo, but [Your Name] made the entire process feel like a true partnership. They took the time to explain how the design would sit on my forearm and move with my muscles. It wasn't just a service; I felt like we were creating something special together. The line work is flawless, and the environment was so calming."</p>
+          <div class="t-author">
+            <div class="t-avatar"><img src="chris.jpg" alt="Christian G."/></div>
+            <div>
+              <div class="t-name">Christian G.</div>
+              <div class="t-role">Client</div>
+            </div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-label">Custom Design</div>
+          <div class="t-stars">★★★★☆</div>
+          <p class="t-text">"I came in with a rough idea, and JAC turned it into a masterpiece. They have a real eye for anatomy—they suggested a slight tilt in the placement that made the whole piece flow perfectly with my body. You can tell they value mastery over speed. I've never had an artist put so much thought into the long-term 'wear' of a tattoo."</p>
+          <div class="t-author">
+            <div class="t-avatar"><img src="jayar.jpg" alt="Jayar Flores"/></div>
+            <div>
+              <div class="t-name">Jayar Flores</div>
+              <div class="t-role">Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="testimonial-card">
+        <div class="t-card">
+          <div class="t-label">Full Sleeve</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">"Getting my full sleeve done here was the best decision I made. The planning process was thorough, and every session felt intentional. The way the design wraps my arm perfectly still amazes me every day. Truly a collaboration, not just a service."</p>
+          <div class="t-author">
+            <div class="t-avatar"><img src="tom.jpg" alt="tom"/></div>
+            <div>
+              <div class="t-name">Tom L.</div>
+              <div class="t-role">Client</div>
+            </div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-label">Cover-Up</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">"I had an old tattoo I was embarrassed about for years. The cover-up work done here is nothing short of miraculous. What was once an eyesore is now a piece of art I'm proud to show off. The artist's knowledge of color theory and composition made all the difference."</p>
+          <div class="t-author">
+            <div class="t-avatar"><img src="jayce.jpg" alt="ms. jayce"/></div>
+            <div>
+              <div class="t-name">Ms. Jayce</div>
+              <div class="t-role">Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-nav">
+      <button class="t-btn" id="tPrev">&#8592;</button>
+      <button class="t-btn" id="tNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- DEALS -->
+<section class="deals" id="deals">
+  <div class="deals-inner">
+    <div class="deals-text reveal">
+      <h2><span>Exclusive</span>Deals</h2>
+      <span class="deal-badge">2 + 1 Flash Deal</span>
+      <h3>Book <strong>two</strong> minimalist sessions and your <strong>third one is on the house.</strong></h3>
+      <p>* <strong>The Details:</strong> Valid for fine-line, micro-designs, and geometric shapes up to [Insert Size, e.g. 2 inches]</p>
+      <p class="claim"><strong>How to Claim:</strong> Mention <strong>"MINI-TRIO"</strong> when booking your appointment.</p>
+      <a href="#" class="btn-dark">Book Now</a>
+    </div>
+    <div class="deals-image reveal" style="transition-delay:0.2s">
+      <img src="flash deals.png" alt="Minimalist tattoo on shoulder"/>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-logo">
+      <span class="logo-jac">JAC</span>
+      <span class="logo-sub">Tattoo Gallery</span>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:jactattoo@gmail.com"><span class="icon">✉</span> jactattoo@gmail.com</a>
+      <a href="tel:+639876543221"><span class="icon">📞</span> +0987654221</a>
+      <a href="#"><span class="icon">📍</span> Bulacan, Meycauayan, Philippines</a>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/johnalexiestattoo" title="Facebook">f</a>
+      <a href="https://www.tiktok.com/@jactattoo" title="TikTok">♪</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>All rights reserved 2026.</span>
+    <span>Created and designed by Rem</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt=""/>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>J.A.C Tattoo Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
