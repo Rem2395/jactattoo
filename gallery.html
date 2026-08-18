@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>J.A.C Tattoo Gallery - Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  /* Images Page Specific Styles */
+  .images-hero {
+    position: relative; min-height: 50vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+
+  .images-hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.3) 100%),
+      url('cover3.jpg') center/cover no-repeat;
+  }
+  .images-hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 60%, rgba(232,97,26,0.12) 0%, transparent 60%);
+  }
+
+  .images-hero-content {
+    position: relative; z-index: 2;
+    padding: 0 5%; max-width: 620px;
+  }
+
+  .images-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 0.92; color: var(--white);
+    margin-bottom: 16px;
+  }
+  .images-hero-title span { color: var(--orange); }
+
+  .images-hero-desc {
+    font-size: 0.95rem; line-height: 1.75; color: rgba(245,240,235,0.7);
+  }
+
+  /* Images Grid */
+  .images-grid {
+    background: var(--dark);
+    padding: 80px 5%;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .image-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+    filter: grayscale(30%);
+  }
+
+  .image-card:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+
+  .image-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-6px);
+  }
+
+  .image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(232,97,26,0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .image-card:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .image-overlay span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .images-hero {
+      min-height: 40vh;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-jac">J·A·C</span>
+    <span class="logo-sub">Tattoo Gallery</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="index.html#about" onclick="closeMenu()">About</a>
+  <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+  <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- DEMO NOTICE -->
+<div class="demo-notice" style="margin-top:0;padding-top:16px;padding-bottom:16px;">
+  <span style="color:var(--orange);">note:</span> this website is not fully functional: this is for Demo purposes only.
+  Buy this design? Message me <a href="#">here</a>.
+</div>
+
+<!-- HERO -->
+<section class="images-hero" id="hero">
+  <div class="images-hero-bg"></div>
+  <div class="images-hero-content">
+    <h1 class="images-hero-title">Recent <span>Work</span></h1>
+    <p class="images-hero-desc">
+      Explore our latest gallery of custom tattoos. This collection highlights the styles, details, and texture work featured in recent sessions.
+    </p>
+  </div>
+</section>
+
+<!-- IMAGES GRID -->
+<section class="images-grid">
+  <div class="grid-container">
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 1.jpg" alt="tattoo 1"/>
+      <div class="image-overlay"><span>tattoo 1</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 2.jpg" alt="tattoo 2"/>
+      <div class="image-overlay"><span>tattoo 2</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 3.jpg" alt="tattoo 3"/>
+      <div class="image-overlay"><span>tattoo 3</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 4.jpg" alt="tattoo 4"/>
+      <div class="image-overlay"><span>tattoo 4</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 5.jpg" alt="tattoo 5"/>
+      <div class="image-overlay"><span>tattoo 5</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 6.jpg" alt="tattoo 6"/>
+      <div class="image-overlay"><span>tattoo 6 </span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 7.jpg" alt="tattoo 7"/>
+      <div class="image-overlay"><span>tattoo 7</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 8.jpg" alt="tattoo 8"/>
+      <div class="image-overlay"><span>tattoo 8</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 9.jpg" alt="tattoo 9"/>
+      <div class="image-overlay"><span>tattoo 9</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 10.jpg" alt="tattoo 10"/>
+      <div class="image-overlay"><span>tattoo 10</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 11.jpg" alt="tattoo 11"/>
+      <div class="image-overlay"><span>tattoo 11</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 12.jpg" alt="tattoo 12"/>
+      <div class="image-overlay"><span>tattoo 12</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 13.jpg" alt="tattoo 13"/>
+      <div class="image-overlay"><span>tattoo 13</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 14.jpg" alt="tattoo 14"/>
+      <div class="image-overlay"><span>tattoo 14</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 15.jpg" alt="tattoo 15"/>
+      <div class="image-overlay"><span>tattoo 15</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 16.jpg" alt="tattoo 16"/>
+      <div class="image-overlay"><span>tattoo 16</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 17.jpg" alt="tattoo 17"/>
+      <div class="image-overlay"><span>tattoo 17</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 18.jpg" alt="tattoo 18"/>
+      <div class="image-overlay"><span>tattoo 18</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 19.jpg" alt="tattoo 19"/>
+      <div class="image-overlay"><span>tattoo 19</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 20.jpg" alt="tattoo 20"/>
+      <div class="image-overlay"><span>tattoo 20</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 21.jpg" alt="tattoo 21"/>
+      <div class="image-overlay"><span>tattoo 21</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 22.jpg" alt="tattoo 22"/>
+      <div class="image-overlay"><span>tattoo 22</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 23.jpg" alt="tattoo 23"/>
+      <div class="image-overlay"><span>tattoo 23</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 24.jpg" alt="tattoo 24"/>
+      <div class="image-overlay"><span>tattoo 24</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 25.jpg" alt="tattoo 25"/>
+      <div class="image-overlay"><span>tattoo 25</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 26.jpg" alt="tattoo 26"/>
+      <div class="image-overlay"><span>tattoo 26</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 27.jpg" alt="tattoo 27"/>
+      <div class="image-overlay"><span>tattoo 27</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 28.jpg" alt="tattoo 28"/>
+      <div class="image-overlay"><span>tattoo 28</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 29.jpg" alt="tattoo 29"/>
+      <div class="image-overlay"><span>tattoo 29</span></div>
+    </div>
+
+    <div class="image-card reveal" onclick="openLightbox(this)">
+      <img src="tattoo 30.jpg" alt="tattoo 30"/>
+      <div class="image-overlay"><span>tattoo 30</span></div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-logo">
+      <span class="logo-jac">JAC</span>
+      <span class="logo-sub">Tattoo Gallery</span>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:jactattoo@gmail.com"><span class="icon">✉</span> jactattoo@gmail.com</a>
+      <a href="tel:+639876543221"><span class="icon">📞</span> +0987654221</a>
+      <a href="#"><span class="icon">📍</span> Bulacan, Meycauayan, Philippines</a>
+    </div>
+    <div class="footer-socials">
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="X / Twitter">✕</a>
+      <a href="#" title="Instagram">⊕</a>
+      <a href="#" title="TikTok">♪</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>All rights reserved 2026.</span>
+    <span>Powered by Wordpress</span>
+    <span>Created and designed by Ron</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt=""/>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
